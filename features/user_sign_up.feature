@@ -10,13 +10,13 @@ Feature: Sign up
 	Scenario: Visiting the sign up page
 		Given that I am on the Chitter home page
 		When I click on "Sign up"
-		Then I should see "Sing in to Chitter"
+		Then I should see "Sign in to Chitter"
 
 	Scenario: Signing up to Chitter
 		Given that I am on the Chitter sign up page
-		When I fill in "user name" with "weezard"
-		And I fill in "email address" with "weezard@giraffes.com"
-		And I click on "Sign up"
+		When I fill in "user_name" with "weezard"
+		And I fill in "email" with "weezard@giraffes.com"
+		And I click on "Join Chitter"
 		Then I should see "Welcome to Chitter, weezard"
 		And an email should be sent to "weezard@giraffes.com"
 		And I should be on the Chitter home page

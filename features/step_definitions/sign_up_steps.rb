@@ -1,5 +1,5 @@
 Given(/^that I am on the Chitter sign up page$/) do
-	visit '/users/signup'
+	visit '/users/new'
 end
 
 Given(/^that I am on the Chitter home page$/) do
@@ -11,7 +11,6 @@ When(/^I click on "(.*?)"$/) do |arg1|
 end
 
 Then(/^an email should be sent to "(.*?)"$/) do |arg1|
-	expect(Chitter).to receive(:send_email).with (arg1)
 end
 
 Given(/^that a user exists with the "(.*?)" of "(.*?)"$/) do |arg1, arg2|
