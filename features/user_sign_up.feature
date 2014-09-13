@@ -14,16 +14,17 @@ Feature: Sign up
 
 	Scenario: Signing up to Chitter
 		Given that I am on the Chitter sign up page
-		When I fill in "user_name" with "weezard"
+		When I fill in "username" with "weezard"
 		And I fill in "email" with "weezard@giraffes.com"
+		And I fill in "password" with "1337pass"
+		And I fill in "password_confirmation" with "1337pass"
 		And I click on "Join Chitter"
-		Then I should see "Welcome to Chitter, weezard"
-		And an email should be sent to "weezard@giraffes.com"
+		Then I should see "Hi weezard!"
 		And I should be on the Chitter home page
 
 	Scenario: Signing up with a username that is already taken
 		Given that I am on the Chitter sign up page
-		And that a user exists with the "user name" of "weezard"
+		And that a user exists with the "username" of "weezard"
 		When I sign up with a user name of "weezard" and an email address of "happy@happy.com"
 		Then I should see "Sorry, that user name has already been taken"
 		And I should see "happy@happy.com"

@@ -18,9 +18,9 @@ end
 
 When(/^I sign up with a user name of "(.*?)" and an email address of "(.*?)"$/) do |arg1, arg2|
 	steps %Q{
-		When I fill in "user name" with "arg1"
-		And I fill in "email address" with "arg2"
-		And I click on "Sign up"
+		When I fill in "username" with "arg1"
+		And I fill in "email" with "arg2"
+		And I click on "Join Chitter"
 	}
 end
 

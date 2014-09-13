@@ -6,11 +6,11 @@ ENV["RACK_ENV"] = "test" # because we need to know what database to work with
 # because the server needs to know
 # what environment it's running it: test or development.
 # The environment determines what database to use.
-require './app/server'
+
+require File.join(File.dirname(__FILE__), '..', 'app/server.rb')
 DataMapper.auto_migrate!
 require 'database_cleaner'
 require 'capybara/rspec'
-require 'timecop'
 
 Capybara.app = Chitter
 
