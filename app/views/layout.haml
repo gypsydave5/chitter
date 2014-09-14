@@ -4,4 +4,10 @@
 	%body
 		-if current_user
 			Hi #{current_user.username}!
+		-if flash[:errors] && !flash[:errors].empty?
+			%p Sorry - there were a few problems with the form:
+			%ul{class: 'errors'}
+				-flash[:errors].each do |error|
+					%li
+						=error
 		=yield

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'User' do
+feature 'Users' do
 
 	scenario 'can create a new user' do
 		expect{ sign_up }.to change(User, :count).by(1)

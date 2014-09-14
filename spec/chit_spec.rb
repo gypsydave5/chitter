@@ -1,21 +1,20 @@
 require 'spec_helper'
 
-describe Chit do
+feature Chit do
 
-  context "Demonstration of how datamapper works" do
+	let(:dummy_user) { User.create(username: 'bob', email: 'bob@bob.com',
+																password: '123456', password_confirmation: '123456')}
 
-    it 'should be created and then retrieved from the db' do
-      expect(Chit.count).to eq(0)
-      Chit.create(:content => "Makers Academy",
-                  :tags => "http://www.makersacademy.com/")
-      expect(Chit.count).to eq(1)
-      link = Chit.first
-      expect(link.tags).to eq("http://www.makersacademy.com/")
-      expect(link.content).to eq("Makers Academy")
-      link.destroy
-      expect(Chit.count).to eq(0)
-    end
+	scenario 'chits can be created' do
+		expect{ new_chit }.to change(Chit, :count).by(1)
+	end
 
-  end
+	xit 'chits extract hashtags from their content'
+
+	xit 'chits can be replies to other chits'
+
+	def new_chit( content='My first chit', user=dummy_user )
+		Chit.create( content: content, user: user )
+	end
 
 end

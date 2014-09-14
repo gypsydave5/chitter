@@ -1,7 +1,7 @@
 %h2 Sign in to Chitter
-%form{ method: 'POST', action: '/users' }
-	%input{ name: 'username', type: 'text' }
-	%input{ name: 'email', type: 'text' }
+%form{ method: 'POST', action: '/users/new' }
+	%input{ name: 'username', type: 'text', value: "#{@user.username}" }
+	%input{ name: 'email', type: 'text', value: "#{@user.email}" }
 	%input{ name: 'password', type: 'password' }
 	%input{ name: 'password_confirmation', type: 'password' }
 	%input{ type: 'submit', value: 'Join Chitter' }

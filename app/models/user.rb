@@ -6,7 +6,10 @@ class User
 
 
 	property :id, Serial
-	property :email, String, unique: true, required: true, format: :email_address
+	property :email, String, unique: true, required: true, format: :email_address,
+		messages: {
+		is_unique: "That email address is already in use - have you forgotten your password?"
+	}
 	property :username, String, unique: true, required: true
 	property :password_digest, Text
 

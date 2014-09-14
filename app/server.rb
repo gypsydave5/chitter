@@ -1,11 +1,11 @@
-require 'data_mapper'
-require 'haml'
 require 'sinatra/base'
-
-env = ENV['RACK_ENV'] || 'development'
-
+require 'data_mapper'
+require 'rack-flash'
+require 'haml'
 require_relative './models/chit.rb'
 require_relative './models/user.rb'
+
+env = ENV['RACK_ENV'] || 'development'
 
 DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 DataMapper.finalize
@@ -13,6 +13,7 @@ DataMapper.auto_migrate!
 
 class Chitter < Sinatra::Base
 
+	use Rack::Flash
 	enable :sessions
 	set :session_secret, 'amaze'
 
@@ -21,18 +22,24 @@ class Chitter < Sinatra::Base
   end
 
 	get '/users/new' do
+		@user = User.new
 		haml :"users/new"
 	end
 
-	post '/users' do
-		user = User.create(
+	post '/users/new' do
+		@user = User.new(
 			email: params[:email],
 			username: params[:username],
 			password: params[:password],
 			password_confirmation: params[:password_confirmation]
 		)
-		session[:user_id] = user.id
-		redirect to ('/')
+		if @user.save
+			session[:user_id] = @user.id
+			redirect to ('/')
+		else
+			flash[:errors] = @user.errors.full_messages
+			haml :"users/new"
+		end
 	end
 
 	helpers do

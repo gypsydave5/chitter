@@ -24,15 +24,16 @@ Feature: Sign up
 
 	Scenario: Signing up with a username that is already taken
 		Given that I am on the Chitter sign up page
-		And that a user exists with the "username" of "weezard"
+		And that a user exists with the username of "weezard" and email of "weezard@giraffes.com"
 		When I sign up with a user name of "weezard" and an email address of "happy@happy.com"
-		Then I should see "Sorry, that user name has already been taken"
-		And I should see "happy@happy.com"
+		Then I should see "Username is already taken"
+		And I should see "happy@happy.com" in the "email" field
 		And I should be on the Chitter sign up page
 
 	Scenario: Signing up with an email address that is already in use
 		Given that I am on the Chitter sign up page
+		And that a user exists with the username of "weezard" and email of "weezard@giraffes.com"
 		When I sign up with a user name of "brian" and an email address of "weezard@giraffes.com"
-		Then I should see "Sorry, that email address is already in use - have you forgotten your password?"
-		And I should see "weezard"
+		Then I should see "That email address is already in use - have you forgotten your password?"
+		And I should see "brian" in the "username" field
 		And I should be on the Chitter sign up page

@@ -4,7 +4,7 @@ class Chit
 
 	property :id, Serial
 	property :content, Text
-	property :tags, String
-	property :users, String
+	belongs_to :user
+	#has 0..1 :chit #for replies???
 
 end
