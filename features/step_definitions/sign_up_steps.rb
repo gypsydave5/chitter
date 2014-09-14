@@ -31,3 +31,28 @@ When(/^I sign up with a user name of "(.*?)" and an email address of "(.*?)"$/) 
 	}
 end
 
+Given(/^that a user exists with the username of "(.*?)" and password of "(.*?)"$/) do |arg1, arg2|
+	User.create(username: arg1, email: "weezard@giraffes.com", password: arg2, password_confirmation: arg2 )
+end
+
+Given(/^I am not logged in$/) do
+	if page.has_button?("Sign Out")
+		click_on "Sign out"
+	end
+end
+
+Then(/^I should not see the "(.*?)" button$/) do |arg1|
+	expect(page).not_to have_content(arg1)
+end
+
+Given(/^that I am signed up and signed in as "(.*?)"$/) do |arg1|
+	steps %Q{
+		Given that I am on the Chitter sign up page
+		When I fill in "username" with "#{arg1}"
+		And I fill in "email" with "bob@bob.com"
+		And I fill in "password" with "123456"
+		And I fill in "password_confirmation" with "123456"
+		And I click on "Join Chitter"
+		And I go to the Chitter home page
+	}
+end

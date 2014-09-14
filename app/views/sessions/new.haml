@@ -1,0 +1,9 @@
+%p Please enter your username and password
+%form{ method: 'POST', action: '/sessions' }
+	%title{ name: 'username' }
+		Username:
+	%input{ type: 'text', name: 'username' }
+	%title{ name: 'password' }
+		Password:
+	%input{ type: 'password', name: 'password' }
+	%input{ type: 'submit', value: 'Log me in' }

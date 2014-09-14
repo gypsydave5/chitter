@@ -1,0 +1,6 @@
+%p
+	Chit about what's going on, #{current_user.username}
+
+%form{ method: 'POST', action: '/chits' }
+	%input{ type: 'text', name: 'chit_content' }
+	%input{ type: 'submit', value: 'Chit Away' }

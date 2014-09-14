@@ -14,6 +14,7 @@ DataMapper.auto_migrate!
 class Chitter < Sinatra::Base
 
 	use Rack::Flash
+	use Rack::MethodOverride
 	enable :sessions
 	set :session_secret, 'amaze'
 
@@ -40,6 +41,38 @@ class Chitter < Sinatra::Base
 			flash[:errors] = @user.errors.full_messages
 			haml :"users/new"
 		end
+	end
+
+	get '/sessions/new' do
+		haml :"sessions/new"
+	end
+
+	post '/sessions' do
+		username, password = params[:username], params[:password]
+		user = User.authenticate(username, password)
+		if user
+			session[:user_id] = user.id
+			redirect to ('/')
+		else
+			flash[:errors] = ["Incorrect username or password"]
+			redirect to('/sessions/new')
+		end
+	end
+
+	delete '/sessions' do
+		session[:user_id] = nil
+		flash[:notice] = "Be seeing you"
+		redirect to ('/')
+	end
+
+	get '/chits/new' do
+		haml :"chits/new"
+	end
+
+	post '/chits' do
+		chit = Chit.new( content: params[:chit_content], user: User.first( id: session[:user_id] ) )
+		chit.save
+		redirect to ('/')
 	end
 
 	helpers do

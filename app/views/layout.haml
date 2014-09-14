@@ -4,10 +4,18 @@
 	%body
 		-if current_user
 			Hi #{current_user.username}!
+			%a{ href: '/chits/new' }
+				New Chit
+			%form{ method: 'POST', action: '/sessions' }
+				%input{ type: 'hidden', name: '_method', value: 'delete' }
+				%input{ type: 'submit', value: 'Sign out' }
 		-if flash[:errors] && !flash[:errors].empty?
 			%p Sorry - there were a few problems with the form:
 			%ul{class: 'errors'}
 				-flash[:errors].each do |error|
 					%li
 						=error
+		-if flash[:notice]
+			%div{ id: 'notice' }
+				=flash[:notice]
 		=yield

@@ -19,6 +19,11 @@ module NavigationHelpers
 		when /the Chitter sign up page/
 			'/users/new'
 
+		when /the Chitter log in page/
+			'/sessions/new'
+
+		when /the new chit page/
+			'/chits/new'
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
