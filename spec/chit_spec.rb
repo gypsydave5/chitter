@@ -1,6 +1,12 @@
 require 'spec_helper'
+require 'timecop'
 
 feature Chit do
+
+	before do
+		t = Time.local(1984,5,6,1,2,3)
+		Timecop.freeze(t)
+	end
 
 	let(:dummy_user) {
 		User.create(
@@ -21,7 +27,16 @@ feature Chit do
 
 	xit 'chits have a character limit of 140'
 
-	xit 'chits are time stamped with their creation time'
+	 it 'chits are time stamped with their creation time' do
+		chit = new_chit
+		t = Time.local(1984,5,6,1,2,3)
+		expect(chit.created_at).to eq(t)
+	end
+
+
+	after do
+		Timecop.return
+	end
 
 	def new_chit( content='My first chit', user=dummy_user )
 		Chit.create( content: content, user: user )

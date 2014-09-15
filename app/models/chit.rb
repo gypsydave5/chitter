@@ -4,7 +4,7 @@ class Chit
 
 	property :id, Serial
 	property :content, Text
-	property :date_stamp, Time
+	property :created_at, Time
 	belongs_to :user
 	#has 0..1 :chit #for replies???
 
