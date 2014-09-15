@@ -19,7 +19,6 @@ Feature:
 		When I click on "New Chit"
 		And I fill in "chit_content" with "This is the exciting test chit of weezard"
 		And I click on "Chit Away"
-		Then I should be on the Chitter home page
-		And I should see "This is the exciting test chit of weezard"
+		Then I should see "This is the exciting test chit of weezard"
 
 

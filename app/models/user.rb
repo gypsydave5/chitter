@@ -12,12 +12,13 @@ class User
 	}
 	property :username, String, unique: true, required: true
 	property :password_digest, Text
+	has n, :chits
 
 	attr_reader :password
 	attr_accessor :password_confirmation
 
 	validates_confirmation_of :password
-	validates_length_of :password, min: 6, message: "Password must be a minium of six characters long"
+	validates_length_of :password, min: 6, if: :new?, message: "Password must be a minium of six characters long"
 
 	def password=(password)
 		@password = password

@@ -56,3 +56,9 @@ Given(/^that I am signed up and signed in as "(.*?)"$/) do |arg1|
 		And I go to the Chitter home page
 	}
 end
+
+Then(/^I should see "(.*?)" followed by "(.*?)"$/) do |arg1, arg2|
+	expect(page.all('div.content')[1]).to have_content(arg1)
+	expect(page.all('div.content')[0]).to have_content(arg2)
+end
+

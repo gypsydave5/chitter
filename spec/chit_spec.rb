@@ -17,7 +17,7 @@ feature Chit do
 		)
 	}
 
-	scenario 'chits can be created' do
+	it 'can be created' do
 		expect{ new_chit }.to change(Chit, :count).by(1)
 	end
 
@@ -27,12 +27,11 @@ feature Chit do
 
 	xit 'chits have a character limit of 140'
 
-	 it 'chits are time stamped with their creation time' do
+	 it 'is time stamped with their creation time' do
 		chit = new_chit
 		t = Time.local(1984,5,6,1,2,3)
 		expect(chit.created_at).to eq(t)
 	end
-
 
 	after do
 		Timecop.return

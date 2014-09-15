@@ -1,5 +1,11 @@
 %h1 Chitter
-%a{href: "/users/new"}
-	Sign up
-%a{href: "/sessions/new"}
-	Log in
+%div#chits
+	- @chits.each do |chit|
+		%div{ id: "chit_#{chit.id}" }
+			%div.created_at
+				= chit.created_at
+			%div.username
+				= chit.user.username
+			%div.content
+				= chit.content
+
