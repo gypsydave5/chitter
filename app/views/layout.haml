@@ -1,14 +1,10 @@
 !!!
 %html
 	%head
+		%link{ href: '/css/css_reset.css', rel: 'stylesheet', type: 'text/css' }
+		%link{ href: '/css/stylesheet.css', rel: 'stylesheet', type: 'text/css' }
+		%link{ href: 'http://fonts.googleapis.com/css?family=Montserrat:400,700', rel: 'stylesheet', type: 'text/css'}
 	%body
 		= partial :"partials/header"
-		-if flash[:errors] && !flash[:errors].empty?
-			%ul{class: 'errors'}
-				-flash[:errors].each do |error|
-					%li
-						=error
-		-if flash[:notice]
-			%div{ id: 'notice' }
-				=flash[:notice]
+		= partial :"partials/alerts"
 		=yield

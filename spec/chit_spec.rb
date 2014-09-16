@@ -25,7 +25,9 @@ feature Chit do
 
 	xit 'chits can be replies to other chits'
 
-	xit 'chits have a character limit of 140'
+	it 'chits have a character limit of 140' do
+		expect { new_chit(long_message) }.to change(Chit, :count).by(0)
+	end
 
 	 it 'is time stamped with their creation time' do
 		chit = new_chit
@@ -39,6 +41,10 @@ feature Chit do
 
 	def new_chit( content='My first chit', user=dummy_user )
 		Chit.create( content: content, user: user )
+	end
+
+	def long_message
+		"A really long string. Seriously long. You would not believe how long this string is. No, listen -- when your grandchildren ask you 'what is the longest string you have ever seen?', you're going to say this one. It's epic."
 	end
 
 end

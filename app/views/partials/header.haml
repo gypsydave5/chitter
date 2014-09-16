@@ -1,13 +1,19 @@
 %header
+	%h1.chitblock Chitter
 	-if current_user
-		%p Hi #{current_user.username}!
-		%a{ href: '/chits/new' }
-			New Chit
-		%form{ method: 'POST', action: '/sessions' }
-			%input{ type: 'hidden', name: '_method', value: 'delete' }
-			%input{ type: 'submit', value: 'Sign out' }
+		%section.chitblock.red
+			%p Hi #{current_user.username}!
+		%section.chitblock.gold
+			%a{ href: '/chits/new' }
+				New Chit
+		%section.chitblock
+			%form{ method: 'POST', action: '/sessions' }
+				%input{ type: 'hidden', name: '_method', value: 'delete' }
+				%input{ type: 'submit', value: 'Sign out' }
 	-else
-		%a{href: "/users/new"}
-			Sign up
-		%a{href: "/sessions/new"}
-			Log in
+		%section.chitblock.red
+			%a{href: "/users/new"}
+				Sign up
+		%section.chitblock.gold
+			%a{href: "/sessions/new"}
+				Log in
