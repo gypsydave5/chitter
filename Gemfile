@@ -9,8 +9,8 @@ gem 'haml'
 gem 'mail'
 gem 'rack-flash3'
 gem 'sinatra'
-gem 'thin'
 gem 'sinatra-partial'
+gem 'thin'
 
 group :development, :test do
 	gem 'capybara'
