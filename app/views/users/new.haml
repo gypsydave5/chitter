@@ -4,18 +4,18 @@
 	%section.chitblock
 		%label{ name: 'username' }
 			Username:
-		%input{ name: 'username', type: 'text', value: "#{@user.username}", placeholder: "username" }
+		%input{ name: 'username', type: 'text', value: "#{@user.username}", placeholder: "username", autocomplete: 'off' }
 	%section.chitblock
 		%label{ name: 'email' }
 			Email:
-		%input{ name: 'email', type: 'text', value: "#{@user.email}", placeholder: "email address" }
+		%input{ name: 'email', type: 'text', value: "#{@user.email}", placeholder: "email address", autocomplete: 'off'  }
 	%section.chitblock
 		%label{ name: 'password' }
 			Password:
-		%input{ name: 'password', type: 'password', placeholder: 'please enter your password' }
+		%input{ name: 'password', type: 'password', placeholder: 'please enter your password', autocomplete: 'off'  }
 	%section.chitblock
 		%label{ name: 'password_confirmation' }
 			Please confirm your password:
-		%input{ name: 'password_confirmation', type: 'password', placeholder: 'just type it again to make sure' }
+		%input{ name: 'password_confirmation', type: 'password', placeholder: 'just type it again to make sure', autocomplete: 'off'  }
 	%section.chitblock
 		%input{ type: 'submit', value: 'Join Chitter' }

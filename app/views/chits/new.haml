@@ -1,5 +1,5 @@
 %section.chitblock
 	%form{ method: 'POST', action: '/chits' }
-		%input{ type: 'text', name: 'chit_content', placeholder: "(chit goes here #{current_user.username})" }
+		%input{ type: 'text', name: 'chit_content', placeholder: "Hey #{current_user.username}. Chit goes here" }
 	-#%section.chitblock
 		-#%input{ type: 'submit', value: 'Chit Away' }

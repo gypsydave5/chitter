@@ -105,6 +105,10 @@ input {
 	background-color: transparent;
 }
 
+input[type=submit] {
+	cursor: pointer;
+}
+
 ul.chitblock {
 	height: auto;
 	background-color: red !important;
