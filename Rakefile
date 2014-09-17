@@ -1,6 +1,6 @@
 require 'data_mapper'
 require './app/helpers/data_mapper_setup.rb'
-
+require './app/server.rb'
 
 task :default, :auto_upgrade do
 	DataMapper.auto_upgrade!
