@@ -1,5 +1,5 @@
-%p
-	Chit about what's going on, #{current_user.username}
-%form{ method: 'POST', action: '/chits' }
-	%input{ type: 'text', name: 'chit_content' }
-	%input{ type: 'submit', value: 'Chit Away' }
+%section.chitblock
+	%form{ method: 'POST', action: '/chits' }
+		%input{ type: 'text', name: 'chit_content', placeholder: "(chit goes here #{current_user.username})" }
+	-#%section.chitblock
+		-#%input{ type: 'submit', value: 'Chit Away' }

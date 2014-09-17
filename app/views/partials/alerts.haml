@@ -1,8 +1,8 @@
 -if flash[:errors] && !flash[:errors].empty?
-	%ul{class: 'errors'}
+	%ul.chitblock{class: 'errors'}
 		-flash[:errors].each do |error|
-			%li
+			%li.error
 				=error
 -if flash[:notice]
-	%div{ id: 'notice' }
+	%div.chitblock{ id: 'notice' }
 		=flash[:notice]

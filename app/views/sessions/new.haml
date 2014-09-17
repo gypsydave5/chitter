@@ -1,9 +1,13 @@
-%p Please enter your username and password
 %form{ method: 'POST', action: '/sessions' }
-	%title{ name: 'username' }
-		Username:
-	%input{ type: 'text', name: 'username' }
-	%title{ name: 'password' }
-		Password:
-	%input{ type: 'password', name: 'password' }
-	%input{ type: 'submit', value: 'Log me in' }
+	%section.chitblock
+		%h2 Please enter your username and password
+	%section.chitblock
+		%title{ name: 'username' }
+			Username:
+		%input{ type: 'text', name: 'username', placeholder: 'username' }
+	%section.chitblock
+		%title{ name: 'password' }
+			Password:
+		%input{ type: 'password', name: 'password', placeholder: 'password' }
+	%section.chitblock
+		%input{ type: 'submit', value: 'Log me in' }

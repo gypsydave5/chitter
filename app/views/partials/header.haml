@@ -1,19 +1,24 @@
 %header
-	%h1.chitblock Chitter
+	%section.chitblock
+		%h1
+			%a{href: '/'}
+				Chitter
+	= partial :"partials/alerts"
 	-if current_user
-		%section.chitblock.red
+		%section.chitblock
 			%p Hi #{current_user.username}!
-		%section.chitblock.gold
+		%section.chitblock
 			%a{ href: '/chits/new' }
 				New Chit
 		%section.chitblock
 			%form{ method: 'POST', action: '/sessions' }
 				%input{ type: 'hidden', name: '_method', value: 'delete' }
 				%input{ type: 'submit', value: 'Sign out' }
+		= partial :"chits/new"
 	-else
-		%section.chitblock.red
+		%section.chitblock
 			%a{href: "/users/new"}
 				Sign up
-		%section.chitblock.gold
+		%section.chitblock
 			%a{href: "/sessions/new"}
 				Log in

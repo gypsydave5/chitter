@@ -12,20 +12,71 @@ body {
 	width: 100%;
 	height: 80px;
 	line-height: 80px;
+	font-size: 2em;
 }
 
-.red {
+.chitblock:nth-of-type(5n-4) {
 	background-color: red;
 }
 
-.gold {
+.chitblock:nth-of-type(5n-3) {
 	background-color: gold;
 }
 
+.chitblock:nth-of-type(5n-2) {
+	background-color: lightblue;
+}
+
+.chitblock:nth-of-type(5n-1) {
+	background-color: brown;
+}
+
+.chitblock:nth-of-type(5n) {
+	background-color: green;
+}
+
+.chitblock:last-of-type {
+	background-color: orange;
+}
+
+.chitblock:first-of-type {
+	background-color: purple;
+}
+
+.created_at{
+
+}
+
+/*.red {*/
+	/*background-color: red;*/
+/*}*/
+
+/*.yellow {*/
+	/*background-color: gold;*/
+/*}*/
+
+/*.blue {*/
+	/*background-color: lightblue;*/
+/*}*/
+
+/*.purple {*/
+	/*background-color: purple;*/
+/*}*/
+
+/*.green {*/
+	/*background-color: green;*/
+/*}*/
+
 h1 {
-	font-size: 4em;
+	font-size: 3em;
 	font-weight: 700;
 	text-align: center;
+}
+
+h2 {
+	font-size: 1.2em;
+	text-align: center;
+	font-weight: 400;
 }
 
 a {
@@ -35,5 +86,62 @@ a {
 	color: white;
 	height: 80px;
 	width: 100%;
-	font-size: 2em;
 }
+
+header p{
+	font-size: 2em
+}
+input {
+	display: block;
+	text-decoration: none;
+	padding: auto;
+	color: white;
+	height: 80px;
+	width: 100%;
+	font-size: 1em;
+	border: none;
+	text-align: center;
+	font-weight: 700;
+	background-color: transparent;
+}
+
+ul.chitblock {
+	height: auto;
+	background-color: red !important;
+}
+
+li.error {
+	font-size: 0.5em;
+	line-height: 40px;
+}
+
+div.chit {
+	display: flex;
+}
+
+div.content {
+	flex: 5;
+}
+
+div.username {
+	flex: 2;
+	color: hsla(300,100%,100%, 0.7);
+}
+
+div.date {
+	flex: 2;
+	font-size: 0.4em;
+	line-height: 40px;
+	color: hsla(300,100%,100%, 0.7);
+}
+
+::-webkit-input-placeholder {
+	font-style: italic;
+	color: hsla(300,100%,100%, 0.7);
+	font-weight: 400;
+}
+
+label {
+	display: none;
+}
+
