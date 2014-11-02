@@ -70,7 +70,7 @@ Migrate the required tables:
 ```shell
 rake auto_migrate
 ```
-Then run the server using either `rackup` or, my preference, `[shotgun]`:
+Then run the server using either `rackup` or, my preference, [Shotgun]:
 
 ```shell
 $ shotgun
