@@ -91,7 +91,7 @@ The unit tests may be run using [RSpec]:
 $ rspec
 ```
 
-The intigration tests may be run using [Cucumber]:
+The integration tests may be run using [Cucumber]:
 ```shell
 $ cucumber
 ```
